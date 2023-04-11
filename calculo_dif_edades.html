@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+<!-- ¿Cuántos años de diferencia tienes con Taylor Swift? 
+Escribe un programa que muestre el mensaje ¨Nuestra diferencia de edad es¨, 
+concatenando el resultado de la diferencia de tu edad con la de Taylor. La 
+respuesta puede dar negativa, sin duda. No olvides de usar las funciones 
+saltarLinea e imprimir y de incluir la etiqueta <meta> para resolver 
+problemas de acentuación. No necesitas enviar la respuesta, solo basta crear 
+un programa, probar y verificar si todo funciona. ¡Si tienes alguna duda no 
+dejes de postearla en el foro! -->
+
+<h1>Cálculo diferencia de edades</h1>
+
+<script>
+
+    function saltoDeLinea() {
+        document.write("<br><br>")
+    };
+
+    function imprimir(frase) {
+        document.write(frase)
+        saltoDeLinea()
+    }
+
+    const year = 2022;
+    const edadTaylor = (year - 1989);
+    const edadAle = (year - 1992);
+    const diferencia = edadTaylor - edadAle;
+    const diferenciaFrase = "Nuestra diferencia de edad es: " + diferencia + " años"
+
+
+    imprimir(diferenciaFrase)
+    document.write(":)")
+
+</script>
+
+</html>
