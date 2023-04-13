@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+<h1>Calcular Tabla de Multiplicar</h1>
+
+<script>
+
+function saltarLinea() {
+    document.write("<br>");
+    document.write("<br>");
+    document.write("<br>");
+};
+
+function imprimir(frase) {
+    document.write(frase);
+    saltarLinea();
+};
+
+var multiplicador = 1;
+
+imprimir("WHILE")
+
+ while (multiplicador <=10){
+    imprimir (5 * multiplicador);
+     multiplicador = multiplicador + 1;
+  }
+
+
+imprimir("FOR");
+
+for (var multiplicador = 1;multiplicador <= 10;multiplicador = multiplicador + 1){
+    imprimir(5 * multiplicador)
+};
+
+//multiplicador+1 puede cambiarse por multiplicador++
+
+//SINTAXIS CICLO FOR
+//for ([expresion-inicial]; [condicion]; [expresion-final])sentencia
+
+//La declaración for se divide en tres partes que están separadas 
+//por un punto y coma. La primera se usa para declarar la variable 
+//que usaremos como contador, la segunda para la condición de 
+//repetición y la última para el incremento de la variable contador.
+</script>
+</html>
+
