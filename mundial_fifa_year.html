@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+<h1>Año mundial</h1>
+
+<script>
+
+function saltarLinea() {
+    document.write("<br>");
+    document.write("<br>");
+    document.write("<br>");
+};
+
+function imprimir(frase) {
+    document.write(frase);
+    saltarLinea();
+};
+
+var yearMundial = 1930;
+var limite = parseInt(prompt("Año límite"));
+
+while (yearMundial <= limite) {
+    imprimir("Hubo mundial de la FIFA en el año " + yearMundial);
+    yearMundial = yearMundial + 4;
+};
+
+</script>
+</html>
+
