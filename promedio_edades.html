@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+<h1>Programa</h1>
+<h3>Calcular promedio de edad de una familia</h3>
+
+<script>
+
+function saltarLinea() {
+    document.write("<br>");
+    document.write("<br>");
+    document.write("<br>");
+};
+
+function imprimir(frase) {
+    document.write(frase);
+    saltarLinea();
+};
+
+var numeroMiembros = parseInt(prompt("Ingrese la cantidad de miembros de su familia"));
+var contador = 1;
+var totalEdades = 0; // Toda inicialización de variables va fuera del whil
+
+while (contador <=numeroMiembros){
+    edad = parseInt(prompt("Ingrese la edad del familiar"))
+    totalEdades = totalEdades + edad;
+    contador++;
+}
+
+mediaEdades = totalEdades/numeroMiembros;
+imprimir("La media de edades es " + mediaEdades);
+
+//multiplicador+1 puede cambiarse por multiplicador++
+
+//SINTAXIS CICLO FOR
+//for ([expresion-inicial]; [condicion]; [expresion-final])sentencia
+
+//1. declarar la variable que usaremos como contador
+//2. condición de la repetición y la última 
+//3. incremento de la variable contador (condición de parada).
+</script>
+</html>
