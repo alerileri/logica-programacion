@@ -3,7 +3,24 @@
 <h1>Números pares</h1>
 
 <script>
+ function saltoDeLinea() {
+        document.write("<br>")
+    };
 
+    function imprimir(frase) {
+        document.write(frase)
+        saltoDeLinea()
+    }
+
+
+var contador = 0;
+
+    while (contador <50) {
+        contador++;
+        imprimir(contador*2)
+    }
+
+    imprimir("FIN")
 
 </script>
 
