@@ -1,8 +1,8 @@
 <canvas width="600" height="400"> </canvas>
 
 <script>
-    //Este programa dibuja ciculos con un clic,
-    //puedes cambiar el color del circulo con clic derecho
+    //Este programa dibuja un círculo en movimiento
+    //Al alcanzar el final de la pantalla, regresa
 
     var pantalla = document.querySelector("canvas");
     var pincel = pantalla.getContext("2d");   
@@ -21,14 +21,33 @@
     };
 
     var x = 0;
+    var a = 1;
 
     function actualizarPantalla(){
+
         limpiarPantalla();
-        dibujarCirculo(x,20,10);
-        x++;
+
+        if (x > 600){
+            a = -1;      
+        }
+        else if(x < 0){
+            a = 1;
+        }
+
+        dibujarCirculo(x,10,20);
+        x = x + a;
+
     };
 
-    setInterval(actualizarPantalla,50);
+    // function actualizarPantRev(){
+    //     limpiarPantalla();
+    //     dibujarCirculo(x,20,10);
+    //     x = 600-a;
+    //     a++;
+    // };
+
+    setInterval(actualizarPantalla,2);
+    // setInterval(actualizarPantRev,2);
 
 
 </script> 
