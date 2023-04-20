@@ -1,0 +1,61 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+//--------------PANTALLA-------------------
+    var pantalla = document.querySelector('canvas');
+    var pincel = pantalla.getContext('2d');
+    var colores = ["red", "green", "blue"]
+
+
+    pincel.fillStyle = 'grey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    //---------FUNCIÓN PINCEL--------------
+
+    var puedoDibujar = false;
+    var pincelColor =  pincel.fillStyle = 'blue';
+
+
+    function dibujarCirculo(evento) {
+        if (puedoDibujar) {
+            var x = evento.pageX - pantalla.offsetLeft;
+            var y = evento.pageY - pantalla.offsetTop;
+            pincel.fillStyle = colores[2];
+            pincel.beginPath();
+            pincel.arc(x, y, 5, 0, 2 * 3.14);
+            pincel.fill();
+        }
+    }
+
+    pantalla.onmousemove = dibujarCirculo;
+
+//----- FUNCIONES HABILITAR / DESHABILITAR ------
+
+    function habilitarDibujar() {
+        puedoDibujar = true;
+    }
+
+    function deshabilitarDibujar() {
+        puedoDibujar = false;
+    }
+
+    pantalla.onmousedown = habilitarDibujar;
+    pantalla.onmouseup = deshabilitarDibujar;
+
+//------------- FUNCIÓN PALETA -----------------
+
+    function cuadrado(indiceColor, posicion) {
+            pincel.fillStyle = colores[indiceColor];
+            pincel.fillRect(posicion, 0, 50, 50);
+        };
+
+        var rojo = cuadrado(0, 0);
+        var verde = cuadrado(1, 50);
+        var azul = cuadrado(2, 100);
+
+        // if (azul.onclick){
+
+        // }
+        
+
+</script>
