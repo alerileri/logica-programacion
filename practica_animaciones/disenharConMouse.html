@@ -1,10 +1,11 @@
 <canvas width="600" height="400"></canvas>
 
 <script>
-//--------------PANTALLA-------------------
+    //--------------PANTALLA-------------------
     var pantalla = document.querySelector('canvas');
     var pincel = pantalla.getContext('2d');
     var colores = ["red", "green", "blue"]
+    var indice = 0;
 
 
     pincel.fillStyle = 'grey';
@@ -13,8 +14,45 @@
     //---------FUNCIÓN PINCEL--------------
 
     var puedoDibujar = false;
-    var pincelColor =  pincel.fillStyle = 'blue';
+    var pincelColor = pincel.fillStyle = 'blue';
 
+    //------------- FUNCIÓN PALETA -----------------
+
+    var rojo = (0,0,50,50);
+    var verde = (50,0,50,50);
+    var azul = (100,0,50,50);
+
+    function cuadrado(indiceColor, posicion) {
+        pincel.fillStyle = colores[indiceColor];
+        pincel.fillRect(posicion, 0, 50, 50);
+    };
+
+    cuadrado(0, 0);
+    cuadrado(1, 50);
+    cuadrado(2, 100);
+
+
+
+    // if(rojo.onclick){
+    //     alert("rojo")
+    // }
+    //------FUNCIÓN PINTURA-----
+
+    // function eligePintura(evento){
+    //     var x = evento.pageX - pantalla.offsetLeft;
+    //     var y = evento.pageY - pantalla.offsetTop;
+
+    //         if (y>50 && x<50){
+    //             color=colores[0]
+    //         }
+    //         else if(y>50 && (x>50 && x<100)){
+    //             color=colores[1]
+    //         }
+    //         else if(y>50 && (x>100 && x<150)){
+    //             color=colores[2]
+    //         }
+            
+    // }
 
     function dibujarCirculo(evento) {
         if (puedoDibujar) {
@@ -25,37 +63,55 @@
             pincel.arc(x, y, 5, 0, 2 * 3.14);
             pincel.fill();
         }
+
+        if ((x-pantalla.offsetLeft) <= 150 && (y-pantalla.offsetTop) <= 50) {
+            puedoDibujar = false;
+        }
+
+        // if ((x-pantalla.offsetLeft) <= 50 && (y-pantalla.offsetTop) <= 50) {
+        //     puedoDibujar = false;
+        // }
+
+        // if(pantalla.onclick(x < 50 && y < 50)){
+        //     indice = 0
+        // } if (pantalla.onclick((x<100 && x>50) && y < 50)){
+        //     indice = 1;
+        // } if (pantalla.onclick((x<150 && x>100) && y < 50)){
+        //     indice = 2;
+        // }
     }
 
     pantalla.onmousemove = dibujarCirculo;
 
-//----- FUNCIONES HABILITAR / DESHABILITAR ------
+    //----- FUNCIONES HABILITAR / DESHABILITAR ------
 
     function habilitarDibujar() {
         puedoDibujar = true;
     }
 
     function deshabilitarDibujar() {
-        puedoDibujar = false;
-    }
+        puedoDibujar = false;    }
 
     pantalla.onmousedown = habilitarDibujar;
     pantalla.onmouseup = deshabilitarDibujar;
 
-//------------- FUNCIÓN PALETA -----------------
 
-    function cuadrado(indiceColor, posicion) {
-            pincel.fillStyle = colores[indiceColor];
-            pincel.fillRect(posicion, 0, 50, 50);
-        };
-
-        var rojo = cuadrado(0, 0);
-        var verde = cuadrado(1, 50);
-        var azul = cuadrado(2, 100);
-
-        // if (azul.onclick){
-
-        // }
-        
-
+    pantalla.onclick = function(event) {
+        var rect = pantalla.getBoundingClientRect();
+        var x = event.clientX - rect.left;
+        var y = event.clientY - rect.top;
+        if (x < 50 && y < 50) {
+            alert("¡Clic en la zona roja!");
+        }
+        if ((x < 100 && x>50) && y < 50) {
+            alert("¡Clic en la zona verde!");
+        }
+        if ((x < 150 && x >100) && y < 50) {
+            alert("¡Clic en la zona azul!");
+        }
+    }
 </script>
+
+<!-- function disparar(evento){
+
+pantalla.onclick = disparar; -->
